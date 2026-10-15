@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title> Charbel YAHCHOUCHI — PhD Student</title>
+
+  <meta
+    name="description"
+    content="Academic website of Your Name, PhD student at Your University."
+  />
+
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #161616;
+      --muted: #666;
+      --line: #e8e8e8;
+      --accent: #2563eb;
+      --max-width: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: rgba(250, 250, 250, 0.88);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 68px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 650;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+
+      list-style: none;
+
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 170px;
+      gap: 60px;
+      align-items: center;
+
+      padding: 100px 0 80px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 4.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+      font-weight: 680;
+
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      max-width: 650px;
+
+      font-size: 1.15rem;
+      color: var(--muted);
+    }
+
+    .hero-description strong {
+      color: var(--text);
+      font-weight: 550;
+    }
+
+    .profile-photo {
+      width: 170px;
+      height: 170px;
+
+      object-fit: cover;
+
+      border-radius: 24px;
+      border: 1px solid var(--line);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+
+      margin-top: 28px;
+    }
+
+    .links a {
+      font-size: 0.95rem;
+      font-weight: 550;
+
+      border-bottom: 1px solid #bbb;
+      padding-bottom: 2px;
+    }
+
+    .links a:hover {
+      border-color: var(--accent);
+    }
+
+    /* Sections */
+
+    section {
+      padding: 65px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 50px;
+    }
+
+    .section-title {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .section-content {
+      max-width: 660px;
+    }
+
+    .section-content > p {
+      margin-bottom: 18px;
+    }
+
+    /* Research */
+
+    .research-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+
+      margin-top: 24px;
+    }
+
+    .tag {
+      padding: 7px 13px;
+
+      border: 1px solid var(--line);
+      border-radius: 999px;
+
+      background: var(--surface);
+
+      font-size: 0.88rem;
+      color: #444;
+    }
+
+    /* Publications */
+
+    .publication {
+      margin-bottom: 34px;
+    }
+
+    .publication:last-child {
+      margin-bottom: 0;
+    }
+
+    .publication-year {
+      font-size: 0.8rem;
+      color: var(--muted);
+
+      margin-bottom: 3px;
+    }
+
+    .publication-title {
+      font-weight: 630;
+      font-size: 1.05rem;
+
+      margin-bottom: 5px;
+    }
+
+    .authors {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .venue {
+      color: var(--muted);
+      font-size: 0.93rem;
+      font-style: italic;
+
+      margin-top: 2px;
+    }
+
+    .publication-links {
+      display: flex;
+      gap: 13px;
+
+      margin-top: 9px;
+    }
+
+    .publication-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+
+      color: var(--accent);
+    }
+
+    /* Education */
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 25px;
+
+      margin-bottom: 30px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-date {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .timeline-content h3 {
+      font-size: 1rem;
+      font-weight: 620;
+      margin-bottom: 3px;
+    }
+
+    .timeline-content p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    /* Contact */
+
+    .contact {
+      font-size: 1.15rem;
+    }
+
+    .contact a {
+      color: var(--accent);
+    }
+
+    /* Footer */
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 35px 0 50px;
+
+      border-top: 1px solid var(--line);
+
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 720px) {
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links li:nth-child(3),
+      .nav-links li:nth-child(4) {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+
+        padding-top: 70px;
+      }
+
+      .profile-photo {
+        grid-row: 1;
+        width: 110px;
+        height: 110px;
+
+        border-radius: 18px;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+
+  <nav>
+    <div class="container nav-inner">
+
+      <a class="logo" href="#">
+        Charbel Yahchouchi
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#education">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <main class="container">
+
+    <!-- Hero -->
+
+    <header class="hero">
+
+      <div>
+
+        <div class="eyebrow">
+          PhD Student · INRIA · Probayes
+        </div>
+
+        <h1>
+          Charbel Yahchouchi
+        </h1>
+
+     <p>
+  I am a second-year PhD student in
+  <span style="color:#2563eb; font-weight:600;">Computer Vision</span> at
+  <span style="color:#2563eb; font-weight:600;">Inria Centre at Université Côte d’Azur</span>,
+  in collaboration with
+  <span style="color:#2563eb; font-weight:600;">Probayes</span>.
+
+  My research focuses on
+  <span style="color:#2563eb; font-weight:600;">deepfake detection</span>,
+  with broader interests in transfer learning, generalization,
+  and explainability.
+</p>
+
+        <div class="links">
+
+          <a href="mailto:charbel.yahchouchi@inria.fr">
+            Email
+          </a>
+
+          <a
+            href="https://scholar.google.com/citations?user=cjqBTOsAAAAJ&hl=fr"
+            target="_blank"
+          >
+            Google Scholar
+          </a>
+
+          <a
+            href="https://github.com/charbelyah"
+            target="_blank"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://linkedin.com/"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="cv.pdf"
+            target="_blank"
+          >
+            CV ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <img
+        src="./20241004_165117.jpg"
+        alt="Your Name"
+        class="profile-photo"
+      />
+
+    </header>
+
+
+    <!-- About -->
+
+    
+
+
+   
+
+
+    <!-- Publications -->
+
+    <section id="publications">
+
+      <div class="section-grid">
+
+        <h2 class="section-title">
+          Publications
+        </h2>
+
+
+        <div class="section-content">
+
+
+          <article class="publication">
+
+            <div class="publication-year">
+  2027
+</div>
+
+<div class="publication-title">
+  MoSTE: Mixture of Spatio-Temporal Experts for Deepfake Detection in Videos
+</div>
+
+<div class="authors">
+  <strong>Charbel Yahchouchi<sup>*</sup></strong>,
+  Nabyl Quignon<sup>*</sup>,
+  Noemi Roggero,
+  Laurent Saroul,
+  Antitza Dantcheva
+</div>
+
+<div style="font-size: 0.8em; color: #777; margin-top: 3px;">
+  <sup>*</sup> Equal contribution
+</div>
+
+<div class="venue">
+   IEEE/CVF Winter Conference on Applications of Computer WACV 2027
+</div>
+<div class="publication-links">
+
+              <a href="#">
+                Paper
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="publication">
+
+            <div class="publication-year">
+              2026
+            </div>
+
+            <div class="publication-title">
+              Generalizable Deepfake Detection Via Simplicity-Bias-Aware Clip Adaptation
+            </div>
+
+            <div class="authors">
+  <strong>Charbel Yahchouchi </strong>,
+  Noemi Roggero,
+  Laurent Saroul,
+  Antitza Dantcheva
+</div>
+
+            <div class="venue">
+             International Conference on Pattern Recognition, ICPR 2026
+            </div>
+
+            <div class="publication-links">
+
+              <a href="#">
+                Paper
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!--
+          If you have no publications yet,
+          delete the articles above and use:
+
+          <p>
+            Publications and preprints coming soon.
+          </p>
+          -->
+
+        </div>
+
+      </div>
+
+    </section>
+ <!-- Experience -->
+
+    <section id="education">
+
+      <div class="section-grid">
+
+        <h2 class="section-title">
+          Experience
+        </h2>
+
+
+        <div class="section-content">
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              july 2025 — Present
+            </div>
+
+            <div class="timeline-content">
+
+              <h3>
+                PhD candidate
+              </h3>
+
+              <p>
+                Probayes - INRIA Center
+              </p>
+
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+               Nov. 2023 — Nov. 2024
+            </div>
+
+            <div class="timeline-content">
+
+              <h3>
+               AI Research Engineer
+              </h3>
+
+              <p>
+                TGI SPORT (SUPPONOR)
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              Sep. 2023 — Oct. 2024
+            </div>
+
+            <div class="timeline-content">
+
+              <h3>
+                Video & AI engineer
+              </h3>
+
+              <p>
+                TGI SPORT (SUPPONOR)
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Education -->
+
+    <section id="education">
+
+      <div class="section-grid">
+
+        <h2 class="section-title">
+          Education
+        </h2>
+
+
+        <div class="section-content">
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              2025 — Present
+            </div>
+
+            <div class="timeline-content">
+
+              <h3>
+                PhD in Automatic Control, Signal and Image Processing
+              </h3>
+
+              <p>
+                Université Côte d'Azur
+              </p>
+
+              <p>
+                Advisor: Antitza Dantcheva
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              2021 — 2023
+            </div>
+
+            <div class="timeline-content">
+
+              <h3>
+               Master's Degree, Mathematical Engineering 
+              </h3>
+
+              <p>
+                Université Côte d'Azur
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              2018 — 2021
+            </div>
+
+            <div class="timeline-content">
+
+              <h3>
+                Bachelor, Pure Mathematics 
+              </h3>
+
+              <p>
+                Lebanese University - Faculty of Sciences 
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Contact -->
+
+    <section id="contact">
+
+      <div class="section-grid">
+
+        <h2 class="section-title">
+          Contact
+        </h2>
+
+        <div class="section-content contact">
+
+          <p>
+            The easiest way to reach me is by email at
+            <a href="mailto:your.email@university.edu">
+              charbel.yahchouchi@inria.fr
+            </a>.
+          </p>
+
+ 
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="container">
+
+    <div>
+      © 2026 Yahchouchi charbel
+    </div>
+
+    <div>
+      Built with HTML & CSS
+    </div>
+
+  </footer>
+
+</body>
+</html>
